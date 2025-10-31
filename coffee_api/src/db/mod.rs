@@ -1,7 +1,7 @@
 use crate::error::ApiResult;
+use std::path::Path;
 use surrealdb::{Surreal, engine::any::Any};
 use tokio::fs;
-use std::path::Path;
 
 pub type Db = Surreal<Any>;
 
@@ -35,7 +35,6 @@ pub async fn connect() -> ApiResult<Db> {
     db.use_ns("test").use_db("test").await?;
     Ok(db)
 }
-
 
 pub async fn apply_migrations(db: &Db) -> ApiResult<()> {
     let migrations_path = Path::new("./coffee_shared/migrations");

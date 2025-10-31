@@ -1,10 +1,10 @@
 use super::app;
+use axum::body::to_bytes;
 use axum::{
     body::Body,
     http::{self, Request, StatusCode},
 };
 use coffee_shared::models::{GreenCoffee, Product, Roast};
-use axum::body::to_bytes;
 use serde_json::json;
 use tower::ServiceExt;
 
@@ -28,7 +28,8 @@ async fn create_product_test() {
         "cupping_notes": ["Chocolate", "Caramel"]
     });
 
-    let response = app.clone()
+    let response = app
+        .clone()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)
@@ -56,7 +57,8 @@ async fn create_product_test() {
         "notes": [],
     });
 
-    let response = app.clone()
+    let response = app
+        .clone()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)
@@ -92,7 +94,8 @@ async fn create_product_test() {
         "roast": roast_id
     });
 
-    let response = app.clone()
+    let response = app
+        .clone()
         .oneshot(
             Request::builder()
                 .method(http::Method::POST)

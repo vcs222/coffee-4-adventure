@@ -1,8 +1,8 @@
 mod db;
+mod error;
 mod routes;
 #[cfg(test)]
 mod tests;
-mod error;
 
 use coffee_shared::models;
 use routes::*;

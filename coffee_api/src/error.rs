@@ -16,7 +16,6 @@ pub enum ApiError {
 
     // #[error("Bad request: {message}")]
     // BadRequest { message: String },
-
     #[error("Internal server error: {message}")]
     Internal { message: String },
 

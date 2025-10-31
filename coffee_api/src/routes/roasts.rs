@@ -26,10 +26,7 @@ pub async fn list_roasts(State(db): State<Db>) -> ApiResult<Json<Vec<Roast>>> {
 }
 
 // GET /roasts/:id - Get specific roast
-pub async fn get_roast(
-    State(db): State<Db>,
-    Path(id): Path<String>,
-) -> ApiResult<Json<Roast>> {
+pub async fn get_roast(State(db): State<Db>, Path(id): Path<String>) -> ApiResult<Json<Roast>> {
     match db.select(make_record_id(&id)).await? {
         Some(roast) => Ok(Json(roast)),
         None => Err(ApiError::NotFound {

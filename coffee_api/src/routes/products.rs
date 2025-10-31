@@ -26,10 +26,7 @@ pub async fn list_products(State(db): State<Db>) -> ApiResult<Json<Vec<Product>>
 }
 
 // GET /products/:id - Get specific product
-pub async fn get_product(
-    State(db): State<Db>,
-    Path(id): Path<String>,
-) -> ApiResult<Json<Product>> {
+pub async fn get_product(State(db): State<Db>, Path(id): Path<String>) -> ApiResult<Json<Product>> {
     match db.select(make_record_id(&id)).await? {
         Some(product) => Ok(Json(product)),
         None => Err(ApiError::NotFound {
@@ -103,7 +100,10 @@ pub async fn update_product(
 }
 
 // DELETE /products/:id - Delete product
-pub async fn delete_product(State(db): State<Db>, Path(id): Path<String>) -> ApiResult<Json<Value>> {
+pub async fn delete_product(
+    State(db): State<Db>,
+    Path(id): Path<String>,
+) -> ApiResult<Json<Value>> {
     let deleted: Option<Product> = db.delete(make_record_id(&id)).await?;
 
     match deleted {

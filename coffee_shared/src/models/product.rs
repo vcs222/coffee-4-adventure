@@ -4,8 +4,8 @@ use surrealdb::sql::Thing;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Product {
-    pub id: Option<Thing>, // SurrealDB record ID
-    pub roast: Option<Thing>, // "roast:id"
+    pub id: Option<Thing>,
+    pub roast: Option<Thing>,
     pub name: String,
     pub description: Option<String>,
     pub category: Option<String>,
