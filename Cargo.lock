@@ -699,6 +699,7 @@ dependencies = [
  "serde",
  "serde_json",
  "surrealdb",
+ "thiserror 2.0.17",
  "tokio",
  "tower",
  "tower-http",
@@ -708,12 +709,10 @@ dependencies = [
 name = "coffee_shared"
 version = "0.1.0"
 dependencies = [
- "axum",
  "chrono",
  "serde",
  "serde_json",
  "surrealdb",
- "thiserror 2.0.17",
  "tokio",
 ]
 

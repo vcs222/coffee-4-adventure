@@ -14,8 +14,8 @@ pub enum ApiError {
     #[error("Not found: {message}")]
     NotFound { message: String },
 
-    #[error("Bad request: {message}")]
-    BadRequest { message: String },
+    // #[error("Bad request: {message}")]
+    // BadRequest { message: String },
 
     #[error("Internal server error: {message}")]
     Internal { message: String },
@@ -38,7 +38,7 @@ impl IntoResponse for ApiError {
                 )
             }
             ApiError::NotFound { message } => (StatusCode::NOT_FOUND, message),
-            ApiError::BadRequest { message } => (StatusCode::BAD_REQUEST, message),
+            // ApiError::BadRequest { message } => (StatusCode::BAD_REQUEST, message),
             ApiError::Internal { message } => {
                 eprintln!("Internal error: {}", message);
                 (StatusCode::INTERNAL_SERVER_ERROR, message)
