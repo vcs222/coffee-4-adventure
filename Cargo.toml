@@ -1,0 +1,7 @@
+[workspace]
+resolver = "3"
+members = [
+    "coffee_api",
+    "coffee_shared",
+    "coffee_web",
+]
