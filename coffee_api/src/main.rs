@@ -1,8 +1,9 @@
+mod db;
 mod routes;
 #[cfg(test)]
 mod tests;
 
-use coffee_shared::{db, error, models};
+use coffee_shared::{error, models};
 use routes::*;
 
 use axum::{Router, routing::get};

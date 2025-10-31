@@ -2,9 +2,9 @@ pub mod products;
 pub mod roasts;
 pub mod greens;
 
+use crate::db;
 use crate::routes::*;
 use axum::{routing::get, Router};
-use coffee_shared::db;
 
 pub async fn app() -> Router {
     let db = db::connect().await.unwrap();

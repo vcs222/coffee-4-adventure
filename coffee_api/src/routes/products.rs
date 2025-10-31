@@ -1,4 +1,4 @@
-use coffee_shared::Db;
+use crate::db::Db;
 use crate::error::{ApiError, ApiResult};
 use crate::models::{CreateProductRequest, Product, UpdateProductRequest};
 use axum::{
